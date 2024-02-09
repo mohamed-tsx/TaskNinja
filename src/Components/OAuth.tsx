@@ -5,14 +5,17 @@ import { GrGoogle } from "react-icons/gr";
 import { firebaseAuth } from "../Firebase/firebaseCinfig";
 import { GithubAuthProvider } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { useUserStore } from "../Hooks/useUserStore";
 
 const OAuth = () => {
   const navigate = useNavigate();
+  const { currentUser } = useUserStore();
   const handleGoogleAuth = async (Provider: AuthProvider) => {
     try {
-      const res = await signInWithPopup(firebaseAuth, Provider);
-      const user = res.user;
-      navigate("/");
+      await signInWithPopup(firebaseAuth, Provider);
+      if (currentUser) {
+        navigate("/");
+      }
     } catch (error) {
       console.log("Error: ", error);
     }
