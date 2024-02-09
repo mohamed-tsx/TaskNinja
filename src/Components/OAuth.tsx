@@ -1,10 +1,37 @@
+import { AuthProvider, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider } from "firebase/auth";
 import { BsGithub } from "react-icons/bs";
 import { GrGoogle } from "react-icons/gr";
+import { firebaseAuth } from "../Firebase/firebaseCinfig";
+import { GithubAuthProvider } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 const OAuth = () => {
+  const navigate = useNavigate();
+  const handleGoogleAuth = async (Provider: AuthProvider) => {
+    try {
+      const res = await signInWithPopup(firebaseAuth, Provider);
+      const user = res.user;
+      navigate("/");
+    } catch (error) {
+      console.log("Error: ", error);
+    }
+  };
+
+  const handleGitHubAuth = async (Provider: AuthProvider) => {
+    try {
+      const res = await signInWithPopup(firebaseAuth, Provider);
+      console.log(res.user);
+    } catch (error) {
+      console.log("Error: ", error);
+    }
+  };
   return (
     <div className="flex flex-col gap-5 mt-20">
-      <button className="flex items-center gap-3 bg-black p-3 text-white rounded-lg">
+      <button
+        onClick={() => handleGoogleAuth(new GoogleAuthProvider())}
+        className="flex items-center gap-3 bg-black p-3 text-white rounded-lg"
+      >
         <GrGoogle />
         Continue with Google
       </button>
@@ -13,7 +40,10 @@ const OAuth = () => {
         <p className="text-gray-500">or</p>
         <div className="flex-grow h-0.5 bg-gray-300"></div>
       </div>
-      <button className="flex items-center gap-3 bg-black p-3 text-white rounded-lg ">
+      <button
+        onClick={() => handleGitHubAuth(new GithubAuthProvider())}
+        className="flex items-center gap-3 bg-black p-3 text-white rounded-lg "
+      >
         <BsGithub />
         Continue with GitHub
       </button>
