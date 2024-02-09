@@ -1,7 +1,14 @@
+import { Route, Routes } from "react-router-dom";
+import Dashboard from "./Pages/Dashboard";
+import Signup from "./Pages/Signup";
+
 function App() {
   return (
-    <div className="flex justify-center items-center min-h-screen text-3xl">
-      <h1 className="text-red-500 font-semibold">Hello World</h1>
+    <div className="">
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
     </div>
   );
 }
