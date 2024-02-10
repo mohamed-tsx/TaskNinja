@@ -19,7 +19,7 @@ const Signup = () => {
           height="40"
           rx="13.5"
           stroke="black"
-          stroke-width="7"
+          strokeWidth="7"
         />
         <rect
           x="59.5"
@@ -28,7 +28,7 @@ const Signup = () => {
           height="40"
           rx="13.5"
           stroke="black"
-          stroke-width="7"
+          strokeWidth="7"
         />
         <rect
           x="3.5"
@@ -37,12 +37,12 @@ const Signup = () => {
           height="40"
           rx="13.5"
           stroke="black"
-          stroke-width="7"
+          strokeWidth="7"
         />
         <path
           d="M72 59.5H90C96.9036 59.5 102.5 65.0964 102.5 72V99.5H72C65.0964 99.5 59.5 93.9036 59.5 87V72C59.5 65.0964 65.0964 59.5 72 59.5Z"
           stroke="black"
-          stroke-width="7"
+          strokeWidth="7"
         />
       </svg>
       <p className="font-medium">Task Ninja</p>

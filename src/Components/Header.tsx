@@ -6,6 +6,7 @@ import { firebaseAuth } from "../Firebase/firebaseCinfig";
 
 const Header = () => {
   const { currentUser, setLogout } = useUserStore();
+  console.log(currentUser);
   const handleLogout = () => {
     setLogout();
     firebaseAuth.signOut();
@@ -68,13 +69,16 @@ const Header = () => {
             Logout
           </button>
           {currentUser.photoURL !== null ? (
-            <img
-              src={currentUser.photoURL}
-              alt="Profile pic"
-              width={40}
-              height={40}
-              className="rounded-full"
-            />
+            <>
+              <img
+                src={currentUser.photoURL}
+                alt="Profile pic"
+                width={40}
+                height={40}
+                className="rounded-full"
+              />
+              <p>{currentUser.displayName}</p>
+            </>
           ) : (
             <div>No Photo</div>
           )}

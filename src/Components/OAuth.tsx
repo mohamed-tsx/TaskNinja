@@ -13,11 +13,11 @@ const OAuth = () => {
   const handleGoogleAuth = async (Provider: AuthProvider) => {
     try {
       await signInWithPopup(firebaseAuth, Provider);
-      if (currentUser) {
-        navigate("/");
-      }
     } catch (error) {
       console.log("Error: ", error);
+    }
+    if (currentUser) {
+      navigate("/");
     }
   };
 
