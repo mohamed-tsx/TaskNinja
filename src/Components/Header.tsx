@@ -7,7 +7,6 @@ import { firebaseAuth } from "../Firebase/firebaseCinfig";
 const Header = () => {
   const { currentUser, setLogout } = useUserStore();
   const handleLogout = () => {
-    console.log("ad");
     setLogout();
     firebaseAuth.signOut();
   };
