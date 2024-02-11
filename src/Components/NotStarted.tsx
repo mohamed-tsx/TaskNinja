@@ -13,31 +13,37 @@ interface Task {
   id: string;
 }
 
-interface props {
+interface Props {
   notStarted: Task;
 }
-const NotStarted = ({ notStarted }: props) => {
+
+const NotStarted = ({ notStarted }: Props) => {
   return (
-    <div className="border rounded-md p-4 w-52 flex flex-col gap-3 flex-wrap overflow-visible">
+    <div className="border rounded-md p-5 w-fit flex flex-col gap-3 overflow-visible">
       <div className="flex justify-between items-center">
-        <p>{notStarted.Task.taskName}</p>
-        <BsThreeDotsVertical />
+        <p className="text-lg font-semibold">{notStarted.Task.taskName}</p>
+        <BsThreeDotsVertical className="text-gray-600" />
       </div>
-      <div className="flex items-center gap-3">
-        <div className="flex items-center gap-1">
-          <p>Priority: </p>
-          <p>{notStarted.Task.priority}</p>
-        </div>
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-2">
-            <LuCalendar />
-            <div className="flex gap-2">
-              <p>due date:</p>
-              <p>{notStarted.Task.dueDate}</p>
+      <div className="flex gap-2 flex-col">
+        <div>
+          <div className="flex items-center gap-1 text-sm text-gray-500">
+            <p>Priority:</p>
+            <p>{notStarted.Task.priority}</p>
+          </div>
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 text-sm text-gray-500">
+              <LuCalendar />
+              <div className="flex gap-2">
+                <p>Due date:</p>
+                <p>{notStarted.Task.dueDate}</p>
+              </div>
             </div>
           </div>
         </div>
-        <p>{notStarted.Task.status}</p>
+        <div className="flex items-center text-sm text-gray-700 gap-2">
+          <p>Status: </p>
+          <p className="text-sm text-gray-700">Not Started</p>
+        </div>
       </div>
     </div>
   );
