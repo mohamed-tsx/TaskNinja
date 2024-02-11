@@ -13,7 +13,6 @@ function App() {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(firebaseAuth, (user) => {
       setCurrentUser(user);
-      console.log(currentUser);
     });
 
     // Cleanup the subscription when the component unmounts

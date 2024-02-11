@@ -3,7 +3,6 @@ import { useUserStore } from "../Hooks/useUserStore";
 
 const PrivateRoute = () => {
   const { currentUser } = useUserStore();
-  console.log(currentUser);
 
   return currentUser ? <Outlet /> : <Navigate to={"signup"} />;
 };
