@@ -11,6 +11,7 @@ import {
 import { firebaseFirestore } from "../Firebase/firebaseCinfig";
 import { useUserStore } from "../Hooks/useUserStore";
 import NotStarted from "../Components/NotStarted";
+import Completed from "../Components/Completed";
 
 interface Task {
   userId: string;
@@ -137,7 +138,7 @@ const Dashboard = () => {
             pendingTasks.map((pendingTask) => (
               <div key={pendingTask.id}>
                 {/* <p>{pendingTask.Task.taskName}</p> */}
-                <NotStarted notStarted={pendingTask} />
+                {/* <completed completed={completedTask} /> */}
               </div>
             ))
           ) : (
@@ -152,7 +153,7 @@ const Dashboard = () => {
             completedTasks.map((completedTask) => (
               <div key={completedTask.id}>
                 {/* <p>{completedTask.Task.taskName}</p> */}
-                <NotStarted notStarted={completedTask} />
+                <Completed completed={completedTask} />
               </div>
             ))
           ) : (
